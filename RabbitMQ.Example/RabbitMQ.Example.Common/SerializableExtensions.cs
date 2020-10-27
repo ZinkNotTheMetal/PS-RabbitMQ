@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using System.Text;
 using Newtonsoft.Json;
 
@@ -15,11 +16,11 @@ namespace RabbitMQ.Example.Common
             return Encoding.ASCII.GetBytes(json);
         }
 
-        public static Object Deserialize(this byte[] bytes)
+        public static T Deserialize<T>(this ReadOnlyMemory<byte> bytes)
         {
-            var json = Encoding.Default.GetString(bytes);
+            var json = Encoding.Default.GetString(bytes.ToArray());
 
-            return JsonConvert.DeserializeObject(json);
+            return JsonConvert.DeserializeObject<T>(json);
         }
     }
 }
