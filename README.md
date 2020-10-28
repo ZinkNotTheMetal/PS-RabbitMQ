@@ -114,3 +114,10 @@ Each queue is declared with a number of different attributes
 - exclusive: delete the queue when not needed
 - auto-delete: queue deleted when consumer unsubscribes
 
+
+## Installation of RabbitMQ with docker-compose
+- navigate to the installation directory in the project
+```
+docker-compose up -d
+```
+
